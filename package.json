@@ -1,0 +1,24 @@
+{
+  "name": "ui-testing-pop",
+  "version": "1.0.0",
+  "description": "sample project for bydrec ",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andresap2150/ui-testing-pop.git"
+  },
+  "author": "andres.aparicio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andresap2150/ui-testing-pop/issues"
+  },
+  "homepage": "https://github.com/andresap2150/ui-testing-pop#readme",
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "jest-puppeteer": "^4.2.0",
+    "puppeteer": "^1.17.0"
+  }
+}
