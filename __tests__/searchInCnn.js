@@ -29,14 +29,8 @@ describe('Cnn Test',()=>{
         await page.type(homePage.searchInputField, "NFL");
         await page.waitForSelector(homePage.submitSearch);
         await page.click(homePage.submitSearch);
-        await expect(page.title()).resolves.toMatch('Search CNN - Videos, Pictures, and News - CNN.com');
-
-        //let hasError = await page.waitForSelector(resultsPage.noResultsMSG,{timeout:10000}).toThrow();
-        
-        await expect(()=>{
-            page.waitForSelector(resultsPage.noResultsMSG,{timeout:10000})
-        }).toThrow();
-    	//await expect(page.title()).resolves.toMatch('Google');
+        await expect(page.title()).resolves.toMatch(resultsPage.title);
+        await expect(page.waitForSelector(resultsPage.noResultsMSG,{timeout:10000})).rejects.toThrow();
     },30000);
 
     it('search NFLFake ',async()=>{
@@ -47,10 +41,9 @@ describe('Cnn Test',()=>{
         await page.type(homePage.searchInputField, "NFLFake");
         await page.waitForSelector(homePage.submitSearch);
         await page.click(homePage.submitSearch);
-        await expect(page.title()).resolves.toMatch('Search CNN - Videos, Pictures, and News - CNN.com');
+        await expect(page.title()).resolves.toMatch(resultsPage.title);
 
-        let hasError = await page.waitForSelector(resultsPage.noResultsMSG,{timeout:10000});
+        let hasError = await page.waitForSelector(resultsPage.noResultsMSG,{timeout:15000});
         await expect(hasError).toBeTruthy();
-        //await expect(page.title()).resolves.toMatch('Google');
     },30000);
 });	
